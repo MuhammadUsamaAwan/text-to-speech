@@ -11,7 +11,7 @@ const voiceSelect = document.querySelector('#voice') as HTMLSelectElement;
 let voices: SpeechSynthesisVoice[] = [];
 
 function getVoices() {
-  voices = synth.getVoices();
+  voices = synth.getVoices().sort((a, b) => a.name.localeCompare(b.name));
   voices.forEach(voice => {
     const option = document.createElement('option');
     option.textContent = `${voice.name} (${voice.lang})`;
