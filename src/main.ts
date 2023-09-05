@@ -29,7 +29,7 @@ function speak() {
   if (synth.speaking) {
     synth.cancel();
   }
-  if (textInput.value !== '') {
+  if (textInput.value !== '' && voiceSelect.value !== '') {
     const speakText = new SpeechSynthesisUtterance(textInput.value);
     const selectedVoice = voiceSelect.selectedOptions[0].getAttribute('value');
     voices.forEach(voice => {
@@ -47,7 +47,3 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   speak();
 });
-
-pitchInput.addEventListener('change', speak);
-
-rateInput.addEventListener('change', speak);
